@@ -1,0 +1,163 @@
+@use "colors" as *;
+@use "typography" as *;
+@use "sizes" as *;
+
+$prefix: "djne-";
+
+$active-theme: $light;
+$enable-media-query-dark-mode: false; // true compiled, false skipped
+
+// Contextual
+$color-background-default: $color-neutral-000;
+$color-text-default: $color-neutral-1000;
+$color-text-interactive-default: $color-primary-400;
+$color-text-interactive-hover: $color-primary-500;
+
+// set to 0 to disable
+// $letter-spacing-loose: 0;
+
+// Border Radii
+$border-radius-1: $size-2;
+$border-radius-2: $size-4;
+
+// Box Shadows
+// $box-shadow-1: 0px $size-2 $size-1 rgb(0, 0, 0, 0.012), 0px $size-6 $size-4 rgb(0, 0, 0, 0.018), 0px $size-13 $size-12 rgb(0, 0, 0, 0.03); // 6 5 22 18 100 80
+// $box-shadow-2: 0px $size-2 $size-1 rgb(0, 0, 0, 0.016), 0px $size-6 $size-4 rgb(0, 0, 0, 0.024), 0px $size-13 $size-12 rgb(0, 0, 0, 0.04);
+// $box-shadow-3: 0px $size-2 $size-1 rgb(0, 0, 0, 0.02), 0px $size-6 $size-4 rgb(0, 0, 0, 0.03), 0px $size-13 $size-12 rgb(0, 0, 0, 0.05);
+// $box-shadow-4: 0px $size-2 $size-1 rgb(0, 0, 0, 0.03), 0px $size-6 $size-4 rgb(0, 0, 0, 0.042), 0px $size-13$size-12 rgb(0, 0, 0, 0.07);
+// $box-shadow-5: 0px $size-2 $size-1 rgb(0, 0, 0, 0.04), 0px $size-6 $size-4 rgb(0, 0, 0, 0.06), 0px $size-13 $size-12 rgb(0, 0, 0, 0.1);
+
+// Body
+$body-background-color: $color-background-default;
+$body-font-family: $font-family-base;
+$body-font-size: $font-size-400;
+$body-font-weight: $font-weight-default;
+$body-line-height: 1.5;
+$body-text-color: $color-text-default;
+
+// General
+$link-color: $color-text-interactive-default;
+$link-color-hover: $color-text-interactive-hover;
+$link-decoration-default: none;
+$link-decoration-hover: underline;
+$link-font-weight: $font-weight-semi-bold;
+
+$heading-color-default: $color-neutral-1000;
+$heading-font-family: $font-family-accent;
+$heading-font-weight: $font-weight-extra-bold;
+$heading-letter-spacing: -0.02em;
+$heading-line-height: 1.1;
+$heading-text-transform: none;
+
+$heading-1-color: $color-primary-400;
+$heading-1-font-size: $font-size-900;
+$heading-2-color: $color-primary-400;
+$heading-2-font-size: $font-size-800;
+$heading-3-color: $heading-color-default;
+$heading-3-font-size: $font-size-700;
+
+// Layout
+$grid-gap: $size-6;
+$flex-group-gap: $size-4;
+
+$hero-padding-block: clamp(15rem, 15vh, 20rem);
+$section-padding-block: clamp(5rem, 10vh, 6rem);
+
+$container-min-margin-inline: $size-4;
+$container-max-width: 1120px;
+$container-max-width-narrow: 840px;
+// $container-max-width-wide: 75rem;
+
+// Site Header
+$site-header-background-color: transparent;
+$site-header-color: $color-primary-400;
+$side-header-margin: 0;
+$site-header-padding: $size-10 0;
+$site-header-alignment: center;
+$site-header-jusitifcation-small-screens: space-between;
+$site-header-jusitifcation-large-screens: space-between;
+
+// Skip Navigation
+$skip-nav-background-color: $color-primary-500;
+$skip-nav-color: $color-primary-200;
+$skip-nav-padding: $size-4 $size-8;
+$skip-nav-outline-color: $color-accent-400;
+$skip-nav-outline-size: 2px;
+$skip-nav-outline-offset: 3px;
+$skip-nav-position: center;
+
+// Navigation
+$navigation-color: $site-header-color;
+$navigation-color-hover: $site-header-color;
+$navigation-font-family: $body-font-family;
+$navigation-font-size: $font-size-400;
+$navigation-font-weight: $font-weight-semi-bold;
+$navigation-gap: $size-8;
+$navigation-link-text-decoration: none;
+
+// Site Footer
+$footer-background-color: transparent;
+$footer-text-color: $color-neutral-200;
+$footer-link-color: $color-text-interactive-default;
+$footer-link-color-hover: $color-text-interactive-hover;
+$footer-link-font-family: $body-font-family;
+$footer-link-text-decoration: none;
+
+// Buttons
+$button-border: 0;
+$button-border-radius: $border-radius-2;
+$button-font-family: $body-font-family;
+$button-font-size: $font-size-400;
+$button-font-weight: $font-weight-semi-bold;
+$button-padding-default: $size-5 $size-8;
+$button-text-decoration: none;
+$button-text-transform: none;
+
+// $button-default-background: transparent;
+// $button-default-background-hover: $color-neutral-100;
+
+// $button-primary-color: $color-neutral-100;
+// $button-primary-background: $color-primary-700;
+// $button-primary-color-hover: $color-neutral-100;
+// $button-primary-background-hover: $color-primary-800;
+
+// $button-accent-color: $color-neutral-100;
+// $button-accent-background: $color-accent-400;
+// $button-accent-color-hover: $color-neutral-100;
+// $button-accent-background-hover: $color-accent-500;
+
+// Cards
+// $card-background-default: $color-primary-100;
+// $card-body-padding: $size-8;
+// $card-border-radius: $border-radius-2;
+// $card-color-default: $body-text-color;
+// $card-flow-spacing: $size-2;
+// $card-font-family: $body-font-family;
+// $card-line-height: $body-line-height;
+// $card-shadow: $box-shadow-1;
+
+// $card-heading-color-default: $card-color-default;
+// $card-heading-font-size: $font-size-600;
+
+// Form Elements
+// $form-label-color: $body-text-color;
+// $form-label-font-family: $body-font-family;
+// $form-label-font-weight: $font-weight-bold;
+// $form-label-font-size: $body-font-size;
+
+// $form-input-color: $body-text-color;
+// $form-input-font-family: $body-font-family;
+// $form-input-font-weight: $font-weight-semi-bold;
+// $form-input-font-size: $body-font-size;
+// $form-input-background-color: $color-neutral-100;
+// $form-input-border-default: 1px solid $color-neutral-400;
+// $form-input-border-focus: 1px solid $color-primary-400;
+// $form-input-border-radius: $border-radius-1;
+// $form-input-padding: $size-3;
+
+// $form-placeholder-color: $color-neutral-400;
+// $form-placeholder-font-family: $form-input-font-family;
+// $form-placeholder-font-weight: $form-input-font-weight;
+// $form-placeholder-font-size: $body-font-size;
+
+// $form-group-spacing: 0.5rem;

@@ -1,0 +1,22 @@
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+* {
+	font: inherit;
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+img,
+picture,
+svg {
+	display: block;
+	max-width: 100%;
+}

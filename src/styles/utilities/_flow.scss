@@ -1,0 +1,8 @@
+@use "../abstracts" as *;
+
+/* purgecss ignore */
+.#{$prefix} {
+	&flow > *:where(:not(:first-child)) {
+		margin-top: var(--flow-spacer, 1rem);
+	}
+}

@@ -1,0 +1,18 @@
+@use "../abstracts" as *;
+
+.#{$prefix} {
+	&fine-print {
+		border-top: 1px $color-neutral-100 solid;
+		margin-top: $size-4;
+		padding-block: $size-6 $size-3;
+
+		& > a {
+			color: $footer-link-color;
+			text-decoration: $navigation-link-text-decoration;
+
+			&:is(:hover, :focus) {
+				color: $footer-link-color-hover;
+			}
+		}
+	}
+}

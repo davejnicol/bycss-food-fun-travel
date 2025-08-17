@@ -1,0 +1,36 @@
+@use "sass:meta";
+@use "sass:math";
+@use "sass:map";
+@use "breakpoints" as *;
+@use "tokens" as *;
+
+@mixin mq($size) {
+	$breakpoint: 0;
+	@if map.has-key($breakpoints, $size) {
+		$breakpoint: map.get($breakpoints, $size);
+		@media screen and (min-width: $breakpoint) {
+			@content;
+		}
+	} @else if meta.type-of($size) == number {
+		@if math.is-unitless($size) {
+			@error "The number (#{$size}) provided for @mq() is unitless, include px, em etc.";
+		} @else {
+			@media screen and (min-width: $size) {
+				@content;
+			}
+		}
+	} @else {
+		@error "#{$size} is not a valid key in the $breakpoints map or a valid unit number!";
+	}
+}
+
+@mixin heading($fs, $color: $heading-color-default) {
+	font-size: $fs;
+	color: $color;
+
+	font-family: $heading-font-family;
+	font-weight: $heading-font-weight;
+	letter-spacing: $heading-letter-spacing;
+	line-height: $heading-line-height;
+	text-transform: $heading-text-transform;
+}

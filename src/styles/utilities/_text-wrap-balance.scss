@@ -1,0 +1,7 @@
+@use "../abstracts" as *;
+
+.#{$prefix} {
+	&text-wrap-balance {
+		text-wrap: balance;
+	}
+}
