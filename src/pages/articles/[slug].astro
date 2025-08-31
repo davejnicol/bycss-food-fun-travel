@@ -1,0 +1,35 @@
+---
+import { getCollection, type CollectionEntry } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+// Define the Props type for the component
+type Props = {
+	article: CollectionEntry<"articles">;
+};
+
+export async function getStaticPaths() {
+	const allArticles = await getCollection("articles");
+
+	return allArticles.map((article: CollectionEntry<"articles">) => ({
+		params: { slug: article.slug },
+		props: { article },
+	}));
+}
+
+const { article } = Astro.props as Props;
+const { Content } = await article.render();
+---
+
+<BaseLayout title={article.data.title}>
+	<article>
+		<div class="djne-container" data-type="narrow">
+			<div class="djne-flex-group">
+				{article.data.tags.map((tag: string) => <div>{tag}</div>)}
+				{article.data.date}
+			</div>
+			<h1>{article.data.title}</h1>
+			<h2>{article.data.subtitle}</h2>
+			<Content />
+		</div>
+	</article>
+</BaseLayout>

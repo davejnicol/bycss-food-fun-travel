@@ -2,13 +2,13 @@
 import BaseHead from "../components/BaseHead.astro";
 import SiteFooter from "../components/SiteFooter.astro";
 import SiteHeader from "../components/SiteHeader.astro";
-const { title, widthGradient } = Astro.props;
+const { title, withGradient } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en">
 	<BaseHead {title} />
-	<body class={widthGradient && "width-gradient"}>
+	<body class={withGradient && "with-gradient"}>
 		<SiteHeader />
 		<main id="main">
 			<slot />
@@ -19,7 +19,8 @@ const { title, widthGradient } = Astro.props;
 
 <style lang="scss">
 	@use "../styles/abstracts/" as *;
-	body {
+
+	.with-gradient {
 		background-image: $page-top-gradient;
 		background-repeat: no-repeat;
 		background-size: 100% $page-top-gradient-height;
