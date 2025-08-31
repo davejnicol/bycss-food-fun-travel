@@ -113,17 +113,17 @@ $button-border-radius: $border-radius-2;
 $button-font-family: $body-font-family;
 $button-font-size: $font-size-400;
 $button-font-weight: $font-weight-semi-bold;
-$button-padding-default: $size-5 $size-8;
+$button-padding: $size-5 $size-8;
 $button-text-decoration: none;
 $button-text-transform: none;
 
 // $button-default-background: transparent;
 // $button-default-background-hover: $color-neutral-100;
 
-// $button-primary-color: $color-neutral-100;
-// $button-primary-background: $color-primary-700;
-// $button-primary-color-hover: $color-neutral-100;
-// $button-primary-background-hover: $color-primary-800;
+$button-primary-color: $color-neutral-000;
+$button-primary-background: $color-primary-400;
+$button-primary-color-hover: $color-neutral-000;
+$button-primary-background-hover: $color-primary-500;
 
 // $button-accent-color: $color-neutral-100;
 // $button-accent-background: $color-accent-400;

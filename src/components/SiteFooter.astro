@@ -1,15 +1,33 @@
 ---
+import LogoLink from "./LogoLink.astro";
+import PrimaryNavigation from "./PrimaryNavigation.astro";
+import SocialLinks from "./SocialLinks.astro";
 
+const currentYear = new Date().getFullYear();
 ---
 
 <footer class="djne-site-footer">
 	<div class="djne-container">
-		<p>Footer content here!</p>
+		<div class="djne-flex-group djne-align-center">
+			<LogoLink />
+			<PrimaryNavigation label="footer navigation">
+				<li><a href="#">Articles</a></li>
+				<li><a href="#">About</a></li>
+				<li><a href="#">Contact</a></li>
+			</PrimaryNavigation>
+			<SocialLinks />
+
+			<p class="djne-ml-auto">&copy; <span id="footer-year">{currentYear}</span> TravelFoodFun</p>
+		</div>
 	</div>
 </footer>
 
 <style lang="scss">
 	@use "../styles/abstracts" as *;
+
+	.djne-flex-group {
+		width: 100%;
+	}
 
 	.djne-site-footer {
 		background-color: $footer-background-color;
@@ -26,3 +44,7 @@
 		}
 	}
 </style>
+
+<script is:inline>
+	document.getElementById("footer-year").innerText = new Date().getFullYear();
+</script>

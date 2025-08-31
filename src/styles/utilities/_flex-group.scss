@@ -12,4 +12,8 @@
 	&flex-group.#{$prefix}mx-auto {
 		justify-content: center;
 	}
+
+	&align-center {
+		align-items: center;
+	}
 }
