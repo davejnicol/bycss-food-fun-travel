@@ -1,0 +1,15 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import ArticlePreview from "../../components/ArticlePreview.astro";
+
+const allArticles = await getCollection("articles");
+---
+
+<BaseLayout title="Travel Food Fun | Articles">
+	<div class="djne-container">
+		<div class="djne-grid-auto-fit">
+			{allArticles.map((article) => <ArticlePreview {article} />)}
+		</div>
+	</div>
+</BaseLayout>

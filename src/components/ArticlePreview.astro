@@ -1,0 +1,18 @@
+---
+const { article } = Astro.props;
+---
+
+<article class="djne-flow">
+	<div class="image-container">
+		<img src={`/images/articles/${article.data.imageSrc}`} alt={article.data.imageAlt} />
+		<a href="#" class="tag">
+			{article.data.tags[0]}
+		</a>
+	</div>
+	<h3 class="djne-fs-500 djne-fw-bold">{article.data.title}</h3>
+	<p>
+		<a href={`/articles/${article.slug}`}>
+			Read more <span class="djne-visually-hidden">about {article.data.title}</span>
+		</a>
+	</p>
+</article>
