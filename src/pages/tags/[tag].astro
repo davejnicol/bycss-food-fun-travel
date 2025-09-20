@@ -1,0 +1,41 @@
+---
+import { getCollection, type CollectionEntry } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import ArticlePreview from "../../components/ArticlePreview.astro";
+
+export async function getStaticPaths() {
+	const allArticles = await getCollection("articles");
+
+	// create an array of all the tags, with no repeats
+	const uniqueTags = [...new Set(allArticles.map((article) => article.data.tags).flat())];
+
+	// map over those to create a page for each tag
+	return uniqueTags.map((tag) => {
+		const slugFriendlyTag = tag.toLowerCase().replace(/\s+/g, "-");
+		const filteredArticles = allArticles.filter((article) => article.data.tags.includes(tag));
+
+		return {
+			params: { tag: slugFriendlyTag }, // Use slugFriendlyTag for URL
+			props: {
+				articles: filteredArticles,
+				tag: tag,
+			},
+		};
+	});
+}
+
+const { articles, tag } = Astro.props;
+const pageTitle = "Travel Food Fun | " + tag;
+---
+
+<BaseLayout title={pageTitle}>
+	<div class="djne-container djne-flow">
+		<section class="djne-section">
+			<h1 class="djne-heading-2 djne-margin-block-end-8">{tag} Articles</h1>
+			<p class="djne-margin-block-end-8">The following articles have a <span class="djne-fw-bold">{tag}</span> tag.</p>
+			<div class="djne-grid-auto-fit">
+				{articles.map((article) => <ArticlePreview {article} />)}
+			</div>
+		</section>
+	</div>
+</BaseLayout>

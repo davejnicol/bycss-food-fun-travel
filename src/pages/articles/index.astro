@@ -8,9 +8,11 @@ allArticles.sort((a, b) => Date.parse(b.data.date) - Date.parse(a.data.date));
 ---
 
 <BaseLayout title="Travel Food Fun | Articles">
-	<div class="djne-container">
-		<div class="djne-grid-auto-fit">
-			{allArticles.map((article) => <ArticlePreview {article} />)}
-		</div>
+	<div class="djne-container djne-flow">
+		<section class="djne-section">
+			<div class="djne-grid-auto-fit">
+				{allArticles.map((article) => <ArticlePreview {article} />)}
+			</div>
+		</section>
 	</div>
 </BaseLayout>
