@@ -4,6 +4,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import ArticlePreview from "../../components/ArticlePreview.astro";
 
 const allArticles = await getCollection("articles");
+allArticles.sort((a, b) => Date.parse(b.data.date) - Date.parse(a.data.date));
 ---
 
 <BaseLayout title="Travel Food Fun | Articles">
