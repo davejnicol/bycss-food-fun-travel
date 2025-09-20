@@ -1,0 +1,24 @@
+---
+const { date } = Astro.props;
+
+// Function to add the ordinal suffix (e.g., '10th')
+function addOrdinal(day: number) {
+	const s = ["th", "st", "nd", "rd"];
+	const v = day % 100;
+	return day + (s[(v - 20) % 10] || s[v] || s[0]);
+}
+
+const finalDate = `${addOrdinal(date.getDate())} ${date.toLocaleDateString("en-GB", { month: "short" })}, ${date.getFullYear()}`;
+---
+
+<time datetime={date.toISOString()}>
+	{finalDate}
+</time>
+
+<style lang="scss">
+	@use "../styles/abstracts" as *;
+
+	time {
+		color: $date-color;
+	}
+</style>
