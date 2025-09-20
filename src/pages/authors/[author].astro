@@ -1,0 +1,44 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import ArticlePreview from "../../components/ArticlePreview.astro";
+
+export async function getStaticPaths() {
+	const allArticles = await getCollection("articles");
+
+	// create an array of all the authors, with no repeats
+	const uniqueAuthors = [...new Set(allArticles.map((article) => article.data.author).flat())];
+
+	// map over the above to create a page for each author
+	return uniqueAuthors.map((author) => {
+		const slugFriendlyAuthor = author.toLowerCase().replace(/\s+/g, "-");
+		const filteredArticles = allArticles.filter((article) => article.data.author.includes(author));
+
+		return {
+			params: { author: slugFriendlyAuthor },
+			props: {
+				articles: filteredArticles,
+				author: author,
+			},
+		};
+	});
+}
+
+const { articles, author } = Astro.props;
+const pageTitle = "Travel Food Fun | " + author;
+---
+
+<BaseLayout title={pageTitle}>
+	<div class="djne-container djne-flow">
+		<section class="djne-section">
+			<h1 class="djne-heading-2 djne-margin-block-end-8">{author} Articles</h1>
+			<p class="djne-margin-block-end-8">The following articles are written by <span class="djne-fw-bold">{author}</span>.</p>
+			<div class="djne-grid-auto-fit">
+				{articles.map((article) => <ArticlePreview {article} />)}
+			</div>
+		</section>
+		<section class="djne-section">
+			<h2 class="djne-fw-bold">About the author</h2>
+		</section>
+	</div>
+</BaseLayout>
