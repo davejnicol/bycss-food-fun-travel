@@ -1,8 +1,9 @@
 ---
 const { tag, class: className, ...rest } = Astro.props;
+const slugFriendlyTag = tag.toLowerCase().replace(/\s+/g, "-");
 ---
 
-<a class={className} {...rest} href="#">
+<a class={className} {...rest} href={`/tags/${slugFriendlyTag}`}>
 	{tag}
 </a>
 
