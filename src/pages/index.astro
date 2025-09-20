@@ -6,9 +6,11 @@ import { record } from "astro:schema";
 
 const allArticles = await getCollection("articles");
 allArticles.sort((a, b) => Date.parse(b.data.date) - Date.parse(a.data.date));
+
 const featuredArticles = await getCollection("articles", ({ data }) => {
 	return data.featured;
 });
+featuredArticles.sort((a, b) => Date.parse(b.data.date) - Date.parse(a.data.date));
 ---
 
 <Layout withGradient title="Travel Food Fun">
