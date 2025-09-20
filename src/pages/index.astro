@@ -1,16 +1,42 @@
 ---
-import SiteFooter from "../components/SiteFooter.astro";
-import SiteHeader from "../components/SiteHeader.astro";
+import { getCollection } from "astro:content";
 import Layout from "../layouts/BaseLayout.astro";
+import ArticlePreview from "../components/ArticlePreview.astro";
+import { record } from "astro:schema";
+
+const allArticles = await getCollection("articles");
+allArticles.sort((a, b) => Date.parse(b.data.date) - Date.parse(a.data.date));
+const featuredArticles = await getCollection("articles", ({ data }) => {
+	return data.featured;
+});
 ---
 
-<Layout withGradient title="Let's get to work">
+<Layout withGradient title="Travel Food Fun">
 	<div class="djne-container djne-flow">
-		<h1 class="djne-heading-1">Travel Fun Food</h1>
-		<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laborum nulla repellendus dolore quam quas? Nisi eaque veniam dolorem enim. Odit incidunt nisi dignissimos facilis perspiciatis quidem accusantium at consectetur minus.</p>
-		<p>Aperiam non nulla recusandae totam atque officia debitis tenetur, natus veritatis eius perferendis libero earum voluptatum doloremque dignissimos, ut laborum illum eligendi autem ipsa quaerat. Dolorum consequatur ipsum harum ut.</p>
-		<p>
-			Dolore molestias et esse neque beatae atque. Quas necessitatibus, quibusdam est vero neque corporis doloremque consectetur error, dicta animi commodi! Accusamus distinctio dolor eligendi sint repudiandae sapiente adipisci nemo doloribus?
-		</p>
+		<section class="djne-section">
+			<h1 class="djne-heading-1">Travel<br />Food Fun</h1>
+			<p class="djne-fs-500">
+				Discover the perfect blend of adventure and flavor at Travel Fun Food! Dive into captivating travel stories and indulge your taste buds with delectable culinary experiences. Join us on a journey of exploration and gastronomy, where
+				every adventure is seasoned with excitement. Ready to embark on a world of travel, fun, and food? 🌍
+			</p>
+		</section>
+		<section class="djne-section djne-flow">
+			<h2 class="djne-heading-2">Featured articles</h2>
+			<div class="djne-grid-auto-fit">
+				{featuredArticles.slice(0, 4).map((article) => <ArticlePreview {article} />)}
+			</div>
+		</section>
+		<!-- all blogs link -->
+
+		<section class="djne-section djne-flow">
+			<h2 class="djne-heading-2">Travel articles</h2>
+			<div class="djne-grid-auto-fit">
+				{allArticles.slice(0, 3).map((article) => <ArticlePreview {article} />)}
+			</div>
+		</section>
+
+		<!-- all blogs link -->
+
+		<!-- Newsletter signup -->
 	</div>
 </Layout>
