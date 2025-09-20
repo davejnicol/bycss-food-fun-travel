@@ -34,7 +34,7 @@ const pageTitle = "Travel Food Fun | " + author;
 			<h1 class="djne-heading-2 djne-margin-block-end-8">{author} Articles</h1>
 			<p class="djne-margin-block-end-8">The following articles are written by <span class="djne-fw-bold">{author}</span>.</p>
 			<div class="djne-grid-auto-fit">
-				{articles.map((article) => <ArticlePreview {article} />)}
+				{articles.map((article) => <ArticlePreview {article} excerptLength="20" />)}
 			</div>
 		</section>
 		<section class="djne-section">

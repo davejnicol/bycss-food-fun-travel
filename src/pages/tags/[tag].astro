@@ -34,7 +34,7 @@ const pageTitle = "Travel Food Fun | " + tag;
 			<h1 class="djne-heading-2 djne-margin-block-end-8">{tag} Articles</h1>
 			<p class="djne-margin-block-end-8">The following articles have a <span class="djne-fw-bold">{tag}</span> tag.</p>
 			<div class="djne-grid-auto-fit">
-				{articles.map((article) => <ArticlePreview {article} />)}
+				{articles.map((article) => <ArticlePreview {article} excerptLength="11" />)}
 			</div>
 		</section>
 	</div>
