@@ -11,7 +11,7 @@ allArticles.sort((a, b) => Date.parse(b.data.date) - Date.parse(a.data.date));
 	<div class="djne-container djne-flow">
 		<section class="djne-section">
 			<div class="djne-grid-auto-fit">
-				{allArticles.map((article) => <ArticlePreview {article} />)}
+				{allArticles.map((article) => <ArticlePreview {article} excerptLength="11" />)}
 			</div>
 		</section>
 	</div>

@@ -2,7 +2,7 @@
 import FormattedDate from "./FormattedDate.astro";
 import Tag from "./Tag.astro";
 import { createExcerpt } from "../utils/create-excerpt";
-const { article } = Astro.props;
+const { article, excerptLength = 0 } = Astro.props;
 ---
 
 <article class="djne-flow">
@@ -16,10 +16,9 @@ const { article } = Astro.props;
 	</p>
 
 	<h3 class="djne-fs-500 djne-fw-bold">{article.data.title}</h3>
-	<p>
-		<!-- {createExcerpt(article.body)} -->
-		{createExcerpt(article.body, 12)}
-	</p>
+
+	{excerptLength > 0 && <p>{createExcerpt(article.body, excerptLength)}</p>}
+
 	<p>
 		<a href={`/articles/${article.slug}`}>
 			Read more <span class="djne-visually-hidden">about {article.data.title}</span>

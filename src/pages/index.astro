@@ -25,7 +25,7 @@ featuredArticles.sort((a, b) => Date.parse(b.data.date) - Date.parse(a.data.date
 		<section class="djne-section djne-flow">
 			<h2 class="djne-heading-2">Featured articles</h2>
 			<div class="djne-grid-auto-fit">
-				{featuredArticles.slice(0, 4).map((article) => <ArticlePreview {article} />)}
+				{featuredArticles.slice(0, 4).map((article) => <ArticlePreview {article} excerptLength="12" />)}
 			</div>
 		</section>
 		<!-- all blogs link -->
@@ -33,7 +33,7 @@ featuredArticles.sort((a, b) => Date.parse(b.data.date) - Date.parse(a.data.date
 		<section class="djne-section djne-flow">
 			<h2 class="djne-heading-2">Travel articles</h2>
 			<div class="djne-grid-auto-fit">
-				{allArticles.slice(0, 3).map((article) => <ArticlePreview {article} />)}
+				{allArticles.slice(0, 3).map((article) => <ArticlePreview {article} excerptLength="10" />)}
 			</div>
 		</section>
 
