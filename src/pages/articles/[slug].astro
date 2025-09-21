@@ -1,6 +1,8 @@
 ---
 import { getCollection, type CollectionEntry } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import Tag from "../../components/Tag.astro";
+import FormattedDate from "../../components/FormattedDate.astro";
 
 // Define the Props type for the component
 type Props = {
@@ -22,14 +24,46 @@ const { Content } = await article.render();
 
 <BaseLayout title={article.data.title}>
 	<article>
-		<div class="djne-container" data-type="narrow">
-			<div class="djne-flex-group">
-				{article.data.tags.map((tag: string) => <div>{tag}</div>)}
-				{article.data.date}
-			</div>
-			<h1>{article.data.title}</h1>
-			<h2>{article.data.subtitle}</h2>
-			<Content />
+		<div class="djne-container djne-flow" data-type="narrow">
+			<section class="djne-section">
+				<div class="meta">
+					<div class="djne-flex-group djne-align-center">
+						<div class="djne-flex-group">
+							{article.data.tags.map((tag: string, i: number) => <Tag tag={article.data.tags[i]}>{tag}</Tag>)}
+						</div>
+						<FormattedDate date={article.data.date} />
+					</div>
+					<a href="#" class="djne-flex-group djne-align-center" style="--flex-column-gap: .25rem">
+						<img src="/images/share.svg" class="share-icon" alt="" />
+						<span>Share</span>
+					</a>
+				</div>
+				<h1 class="djne-heading-2 djne-margin-block-4">{article.data.title}</h1>
+				<h2 class="djne-fs-500 djne-margin-block-end-4">{article.data.subtitle}</h2>
+				<img src=`/images/articles/${article.data.imageSrc}` alt={article.data.imageAlt} />
+				<Content />
+			</section>
 		</div>
 	</article>
 </BaseLayout>
+
+<style lang="scss">
+	@use "../../styles/abstracts" as *;
+
+	.meta {
+		display: flex;
+		gap: 1rem;
+		justify-content: space-between;
+		width: 100%;
+	}
+	.share-icon {
+		width: 26px;
+		aspect-ratio: 1;
+		filter: brightness(0) saturate(100%) invert(15%) sepia(71%) saturate(2518%) hue-rotate(195deg) brightness(93%) contrast(103%);
+
+		&:hover,
+		&:focus-visible {
+			filter: brightness(0) saturate(100%) invert(13%) sepia(47%) saturate(1381%) hue-rotate(177deg) brightness(92%) contrast(105%);
+		}
+	}
+</style>
