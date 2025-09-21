@@ -6,6 +6,7 @@ import FormattedDate from "../../components/FormattedDate.astro";
 import authors from "../../content/authors/authors.json";
 import AboutTheAuthor from "../../components/AboutTheAuthor.astro";
 import ArticlePreview from "../../components/ArticlePreview.astro";
+import ViewAllBlogs from "../../components/ViewAllBlogs.astro";
 
 // Define the Props type for the component
 type Props = {
@@ -70,6 +71,9 @@ const featuredArticles = await getCollection("articles", ({ data }) => {
 			<h2 class="djne-heading-2">Featured travel articles</h2>
 			<div class="djne-grid-auto-fit">
 				{featuredArticles.slice(0, 3).map((article) => <ArticlePreview excerptLength="11" {article} />)}
+			</div>
+			<div class="djne-margin-block-start-12">
+				<ViewAllBlogs />
 			</div>
 		</section>
 	</div>

@@ -2,6 +2,7 @@
 import { getCollection } from "astro:content";
 import Layout from "../layouts/BaseLayout.astro";
 import ArticlePreview from "../components/ArticlePreview.astro";
+import ViewAllBlogs from "../components/ViewAllBlogs.astro";
 
 const allArticles = await getCollection("articles");
 allArticles.sort((a, b) => Date.parse(b.data.date) - Date.parse(a.data.date));
@@ -29,17 +30,20 @@ featuredArticles.sort((a, b) => Date.parse(b.data.date) - Date.parse(a.data.date
 					{featuredArticles.slice(1, 4).map((article) => <ArticlePreview {article} />)}
 				</div>
 			</div>
+			<div class="djne-margin-block-start-12">
+				<ViewAllBlogs />
+			</div>
 		</section>
-		<!-- all blogs link -->
 
 		<section class="djne-section djne-flow">
 			<h2 class="djne-heading-2">Travel articles</h2>
 			<div class="djne-grid-auto-fit">
 				{allArticles.slice(0, 3).map((article) => <ArticlePreview {article} excerptLength="10" />)}
 			</div>
+			<div class="djne-margin-block-start-12">
+				<ViewAllBlogs />
+			</div>
 		</section>
-
-		<!-- all blogs link -->
 
 		<!-- Newsletter signup -->
 	</div>
