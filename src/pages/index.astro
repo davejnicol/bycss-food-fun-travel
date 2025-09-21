@@ -3,6 +3,7 @@ import { getCollection } from "astro:content";
 import Layout from "../layouts/BaseLayout.astro";
 import ArticlePreview from "../components/ArticlePreview.astro";
 import ViewAllBlogs from "../components/ViewAllBlogs.astro";
+import NewsletterCTA from "../components/NewsletterCTA.astro";
 
 const allArticles = await getCollection("articles");
 allArticles.sort((a, b) => Date.parse(b.data.date) - Date.parse(a.data.date));
@@ -45,7 +46,9 @@ featuredArticles.sort((a, b) => Date.parse(b.data.date) - Date.parse(a.data.date
 			</div>
 		</section>
 
-		<!-- Newsletter signup -->
+		<div class="djne-container djne-margin-block-end-12">
+			<NewsletterCTA withImage />
+		</div>
 	</div>
 </Layout>
 

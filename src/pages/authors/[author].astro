@@ -4,6 +4,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import ArticlePreview from "../../components/ArticlePreview.astro";
 import authors from "../../content/authors/authors.json";
 import AboutTheAuthor from "../../components/AboutTheAuthor.astro";
+import NewsletterCTA from "../../components/NewsletterCTA.astro";
 
 export async function getStaticPaths() {
 	const allArticles = await getCollection("articles");
@@ -27,7 +28,7 @@ export async function getStaticPaths() {
 }
 
 const { articles, author } = Astro.props;
-const pageTitle = "Travel Food Fun | " + author;
+const pageTitle = author + " | Travel Food Fun";
 const articleAuthor = author;
 const authorInfo = authors.find(function (author) {
 	return author.name === articleAuthor;
@@ -46,5 +47,8 @@ const authorInfo = authors.find(function (author) {
 				<AboutTheAuthor name={authorInfo.name} description={authorInfo.description} image={authorInfo.image} />
 			</div>
 		</section>
+	</div>
+	<div class="djne-container djne-margin-block-end-12" data-type="narrow">
+		<NewsletterCTA withImage />
 	</div>
 </BaseLayout>

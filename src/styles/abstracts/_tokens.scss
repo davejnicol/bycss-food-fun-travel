@@ -21,7 +21,7 @@ $border-radius-1: $size-2;
 $border-radius-2: $size-4;
 
 // Box Shadows
-// $box-shadow-1: 0px $size-2 $size-1 rgb(0, 0, 0, 0.012), 0px $size-6 $size-4 rgb(0, 0, 0, 0.018), 0px $size-13 $size-12 rgb(0, 0, 0, 0.03); // 6 5 22 18 100 80
+$box-shadow-1: 0px $size-2 $size-1 rgb(0, 0, 0, 0.012), 0px $size-6 $size-4 rgb(0, 0, 0, 0.018), 0px $size-13 $size-12 rgb(0, 0, 0, 0.03); // 6 5 22 18 100 80
 // $box-shadow-2: 0px $size-2 $size-1 rgb(0, 0, 0, 0.016), 0px $size-6 $size-4 rgb(0, 0, 0, 0.024), 0px $size-13 $size-12 rgb(0, 0, 0, 0.04);
 // $box-shadow-3: 0px $size-2 $size-1 rgb(0, 0, 0, 0.02), 0px $size-6 $size-4 rgb(0, 0, 0, 0.03), 0px $size-13 $size-12 rgb(0, 0, 0, 0.05);
 // $box-shadow-4: 0px $size-2 $size-1 rgb(0, 0, 0, 0.03), 0px $size-6 $size-4 rgb(0, 0, 0, 0.042), 0px $size-13$size-12 rgb(0, 0, 0, 0.07);
@@ -164,6 +164,25 @@ $article-lead-font-size-lg-screen: $font-size-600;
 
 $divider: 1px solid $color-neutral-100;
 
+$newsletter-cta-base-heading-family: $font-family-accent;
+$newsletter-cta-base-heading-size: $font-size-500;
+$newsletter-cta-base-heading-weight: $font-weight-bold;
+$newsletter-cta-base-heading-color: $color-neutral-1000;
+$newsletter-cta-base-body-size: $font-size-400;
+$newsletter-cta-base-body-color: $color-neutral-300;
+$newsletter-cta-base-padding: $size-8;
+$newsletter-cta-base-background-image: linear-gradient(transparent, $color-accent-100);
+$newsletter-cta-base-border: 1px solid $color-neutral-100;
+$newsletter-cta-base-border-radius: $border-radius-2;
+
+$newsletter-cta-image-heading-size: $font-size-600;
+$newsletter-cta-image-heading-max-width: 24ch;
+$newsletter-cta-image-body-color: $color-neutral-1000;
+$newsletter-cta-image-background-image: linear-gradient(90deg, $color-accent-300 30%, transparent 80%), url("/images/newsletter-cta.jpg");
+$newsletter-cta-image-background-size: 100%, 70% 200%;
+$newsletter-cta-image-background-repeat: no-repeat;
+$newsletter-cta-image-background-position: right;
+
 // Cards
 // $card-background-default: $color-primary-100;
 // $card-body-padding: $size-8;
@@ -178,20 +197,21 @@ $divider: 1px solid $color-neutral-100;
 // $card-heading-font-size: $font-size-600;
 
 // Form Elements
+$form-input-font: inherit;
+$form-input-border: 1px solid $color-neutral-100;
+$form-input-border-radius: $border-radius-2;
+$form-input-padding: $size-3 $size-6;
+
 // $form-label-color: $body-text-color;
 // $form-label-font-family: $body-font-family;
 // $form-label-font-weight: $font-weight-bold;
 // $form-label-font-size: $body-font-size;
 
 // $form-input-color: $body-text-color;
-// $form-input-font-family: $body-font-family;
 // $form-input-font-weight: $font-weight-semi-bold;
 // $form-input-font-size: $body-font-size;
 // $form-input-background-color: $color-neutral-100;
-// $form-input-border-default: 1px solid $color-neutral-400;
 // $form-input-border-focus: 1px solid $color-primary-400;
-// $form-input-border-radius: $border-radius-1;
-// $form-input-padding: $size-3;
 
 // $form-placeholder-color: $color-neutral-400;
 // $form-placeholder-font-family: $form-input-font-family;

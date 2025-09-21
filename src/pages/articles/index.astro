@@ -2,17 +2,21 @@
 import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import ArticlePreview from "../../components/ArticlePreview.astro";
+import NewsletterCTA from "../../components/NewsletterCTA.astro";
 
 const allArticles = await getCollection("articles");
 allArticles.sort((a, b) => Date.parse(b.data.date) - Date.parse(a.data.date));
 ---
 
-<BaseLayout title="Travel Food Fun | Articles">
+<BaseLayout title="Articles | Travel Food Fun">
 	<div class="djne-container djne-flow">
 		<section class="djne-section">
 			<div class="djne-grid-auto-fit">
 				{allArticles.map((article) => <ArticlePreview {article} excerptLength="11" />)}
 			</div>
 		</section>
+	</div>
+	<div class="djne-container djne-margin-block-end-12" data-type="narrow">
+		<NewsletterCTA />
 	</div>
 </BaseLayout>

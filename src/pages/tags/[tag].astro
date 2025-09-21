@@ -2,6 +2,7 @@
 import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import ArticlePreview from "../../components/ArticlePreview.astro";
+import NewsletterCTA from "../../components/NewsletterCTA.astro";
 
 export async function getStaticPaths() {
 	const allArticles = await getCollection("articles");
@@ -25,7 +26,7 @@ export async function getStaticPaths() {
 }
 
 const { articles, tag } = Astro.props;
-const pageTitle = "Travel Food Fun | " + tag;
+const pageTitle = tag + " | Travel Food Fun";
 ---
 
 <BaseLayout title={pageTitle}>
@@ -37,5 +38,8 @@ const pageTitle = "Travel Food Fun | " + tag;
 				{articles.map((article) => <ArticlePreview {article} excerptLength="11" />)}
 			</div>
 		</section>
+	</div>
+	<div class="djne-container djne-margin-block-end-12" data-type="narrow">
+		<NewsletterCTA />
 	</div>
 </BaseLayout>

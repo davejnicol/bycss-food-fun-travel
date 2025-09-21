@@ -7,6 +7,7 @@ import authors from "../../content/authors/authors.json";
 import AboutTheAuthor from "../../components/AboutTheAuthor.astro";
 import ArticlePreview from "../../components/ArticlePreview.astro";
 import ViewAllBlogs from "../../components/ViewAllBlogs.astro";
+import NewsletterCTA from "../../components/NewsletterCTA.astro";
 
 // Define the Props type for the component
 type Props = {
@@ -32,9 +33,11 @@ const authorInfo = authors.find(function (author) {
 const featuredArticles = await getCollection("articles", ({ data }) => {
 	return data.featured;
 });
+
+const pageTitle = article.data.title + " | Travel Food Fun";
 ---
 
-<BaseLayout title={article.data.title}>
+<BaseLayout title={pageTitle}>
 	<article class="djne-full-article">
 		<div class="djne-container djne-flow" data-type="narrow">
 			<section class="djne-section | djne-padding-block-end-2">
@@ -76,6 +79,9 @@ const featuredArticles = await getCollection("articles", ({ data }) => {
 				<ViewAllBlogs />
 			</div>
 		</section>
+	</div>
+	<div class="djne-container djne-margin-block-end-12">
+		<NewsletterCTA withImage />
 	</div>
 </BaseLayout>
 
