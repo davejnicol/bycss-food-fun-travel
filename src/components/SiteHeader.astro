@@ -3,6 +3,8 @@ import Button from "./Button.astro";
 import LogoLink from "./LogoLink.astro";
 import PrimaryNavigation from "./PrimaryNavigation.astro";
 import SocialLinks from "./SocialLinks.astro";
+import pages from "../content/pages/pages.json";
+
 const { skipTo = "#main" } = Astro.props;
 ---
 
@@ -15,9 +17,17 @@ const { skipTo = "#main" } = Astro.props;
 			<div class="djne-flex-group djne-align-center" style="--flex-column-gap: 2rem;">
 				<PrimaryNavigation label="primary navigation">
 					<li><a href="/">Home</a></li>
-					<li><a href="/articles">Articles</a></li>
-					<li><a href="#">About</a></li>
-					<li><a href="#">Contact</a></li>
+					<!-- <li><a href="/articles">Articles</a></li>
+					<li><a href="/about">About</a></li>
+					<li><a href="/contact">Contact</a></li> -->
+					<!-- Optional Challenge to pull page details from JSON file -->
+					{
+						pages.map((page) => (
+							<li>
+								<a href={page.pageUrl}>{page.pageName}</a>
+							</li>
+						))
+					}
 				</PrimaryNavigation>
 				<SocialLinks />
 				<Button theme="primary">Subscribe to newsletter</Button>

@@ -1,0 +1,14 @@
+[
+	{
+		"pageName": "Articles",
+		"pageUrl": "/articles"
+	},
+	{
+		"pageName": "About",
+		"pageUrl": "/about"
+	},
+	{
+		"pageName": "Contact",
+		"pageUrl": "/contact"
+	}
+]
