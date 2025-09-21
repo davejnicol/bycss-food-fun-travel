@@ -5,6 +5,7 @@ import Tag from "../../components/Tag.astro";
 import FormattedDate from "../../components/FormattedDate.astro";
 import authors from "../../content/authors/authors.json";
 import AboutTheAuthor from "../../components/AboutTheAuthor.astro";
+import ArticlePreview from "../../components/ArticlePreview.astro";
 
 // Define the Props type for the component
 type Props = {
@@ -25,6 +26,10 @@ const { Content } = await article.render();
 const articleAuthor = article.data.author;
 const authorInfo = authors.find(function (author) {
 	return author.name === articleAuthor;
+});
+
+const featuredArticles = await getCollection("articles", ({ data }) => {
+	return data.featured;
 });
 ---
 
@@ -54,12 +59,20 @@ const authorInfo = authors.find(function (author) {
 			</section>
 		</div>
 		<div class="djne-container" data-type="narrow">
-			<section class="djne-section djne-flow | djne-padding-block-start-8">
+			<section class="djne-section djne-flow | djne-padding-block-8">
 				<Content />
 				<AboutTheAuthor name={authorInfo.name} description={authorInfo.description} image={authorInfo.image} />
 			</section>
 		</div>
 	</article>
+	<div class="djne-container">
+		<section class="featured djne-section djne-flow">
+			<h2 class="djne-heading-2">Featured travel articles</h2>
+			<div class="djne-grid-auto-fit">
+				{featuredArticles.slice(0, 3).map((article) => <ArticlePreview excerptLength="11" {article} />)}
+			</div>
+		</section>
+	</div>
 </BaseLayout>
 
 <style lang="scss">
@@ -81,5 +94,9 @@ const authorInfo = authors.find(function (author) {
 		&:focus-visible {
 			filter: brightness(0) saturate(100%) invert(13%) sepia(47%) saturate(1381%) hue-rotate(177deg) brightness(92%) contrast(105%);
 		}
+	}
+	.featured {
+		margin-top: $section-padding-block;
+		border-top: $divider;
 	}
 </style>
