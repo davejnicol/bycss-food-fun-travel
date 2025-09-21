@@ -1,0 +1,42 @@
+---
+const { name, image, description } = Astro.props;
+const articleAuthor = name;
+
+const slugFriendlyAuthor = articleAuthor.toLowerCase().replace(/\s+/g, "-");
+---
+
+<aside class="djne-flow djne-margin-block-start-10">
+	<h2 class="djne-fs-500 djne-fw-bold">About the author</h2>
+	<div class="author">
+		<a href={`/authors/${slugFriendlyAuthor}`}>
+			<img src=`/images/authors/${image}` alt="" class="djne-border-radius-2" />
+		</a>
+		<div>
+			<h3 class="djne-fs-600 djne-fw-semi-bold">{name}</h3>
+			<p class="djne-clr-neutral-300">{description}</p>
+		</div>
+	</div>
+</aside>
+
+<style lang="scss">
+	@use "../styles/abstracts" as *;
+
+	.author {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 1rem;
+		align-items: start;
+
+		img {
+			width: $size-15;
+			aspect-ratio: 1;
+			object-fit: cover;
+		}
+
+		> div {
+			flex-grow: 1;
+			flex-basis: 70%;
+			font-size: $font-size-400;
+		}
+	}
+</style>

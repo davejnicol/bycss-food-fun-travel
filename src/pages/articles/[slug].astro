@@ -3,6 +3,8 @@ import { getCollection, type CollectionEntry } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Tag from "../../components/Tag.astro";
 import FormattedDate from "../../components/FormattedDate.astro";
+import authors from "../../content/authors/authors.json";
+import AboutTheAuthor from "../../components/AboutTheAuthor.astro";
 
 // Define the Props type for the component
 type Props = {
@@ -20,6 +22,10 @@ export async function getStaticPaths() {
 
 const { article } = Astro.props as Props;
 const { Content } = await article.render();
+const articleAuthor = article.data.author;
+const authorInfo = authors.find(function (author) {
+	return author.name === articleAuthor;
+});
 ---
 
 <BaseLayout title={article.data.title}>
@@ -50,6 +56,7 @@ const { Content } = await article.render();
 		<div class="djne-container" data-type="narrow">
 			<section class="djne-section djne-flow | djne-padding-block-start-8">
 				<Content />
+				<AboutTheAuthor name={authorInfo.name} description={authorInfo.description} image={authorInfo.image} />
 			</section>
 		</div>
 	</article>

@@ -2,6 +2,8 @@
 import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import ArticlePreview from "../../components/ArticlePreview.astro";
+import authors from "../../content/authors/authors.json";
+import AboutTheAuthor from "../../components/AboutTheAuthor.astro";
 
 export async function getStaticPaths() {
 	const allArticles = await getCollection("articles");
@@ -26,6 +28,10 @@ export async function getStaticPaths() {
 
 const { articles, author } = Astro.props;
 const pageTitle = "Travel Food Fun | " + author;
+const articleAuthor = author;
+const authorInfo = authors.find(function (author) {
+	return author.name === articleAuthor;
+});
 ---
 
 <BaseLayout title={pageTitle}>
@@ -36,9 +42,9 @@ const pageTitle = "Travel Food Fun | " + author;
 			<div class="djne-grid-auto-fit">
 				{articles.map((article) => <ArticlePreview {article} excerptLength="20" />)}
 			</div>
-		</section>
-		<section class="djne-section">
-			<h2 class="djne-fw-bold djne-fs-500">About the author</h2>
+			<div class="djne-margin-block-start-12">
+				<AboutTheAuthor name={authorInfo.name} description={authorInfo.description} image={authorInfo.image} />
+			</div>
 		</section>
 	</div>
 </BaseLayout>

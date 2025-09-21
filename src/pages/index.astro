@@ -2,7 +2,6 @@
 import { getCollection } from "astro:content";
 import Layout from "../layouts/BaseLayout.astro";
 import ArticlePreview from "../components/ArticlePreview.astro";
-import { record } from "astro:schema";
 
 const allArticles = await getCollection("articles");
 allArticles.sort((a, b) => Date.parse(b.data.date) - Date.parse(a.data.date));
