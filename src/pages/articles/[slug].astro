@@ -23,9 +23,9 @@ const { Content } = await article.render();
 ---
 
 <BaseLayout title={article.data.title}>
-	<article>
+	<article class="djne-full-article">
 		<div class="djne-container djne-flow" data-type="narrow">
-			<section class="djne-section">
+			<section class="djne-section | djne-padding-block-end-2">
 				<div class="meta">
 					<div class="djne-flex-group djne-align-center">
 						<div class="djne-flex-group">
@@ -39,8 +39,16 @@ const { Content } = await article.render();
 					</a>
 				</div>
 				<h1 class="djne-heading-2 djne-margin-block-4">{article.data.title}</h1>
-				<h2 class="djne-fs-500 djne-margin-block-end-4">{article.data.subtitle}</h2>
+				<p class="djne-full-article-subtitle djne-margin-block-end-4">{article.data.subtitle}</p>
+			</section>
+		</div>
+		<div class="djne-container djne-flow" data-type="full-bleed">
+			<section>
 				<img src=`/images/articles/${article.data.imageSrc}` alt={article.data.imageAlt} />
+			</section>
+		</div>
+		<div class="djne-container" data-type="narrow">
+			<section class="djne-section djne-flow | djne-padding-block-start-8">
 				<Content />
 			</section>
 		</div>
@@ -55,6 +63,7 @@ const { Content } = await article.render();
 		gap: 1rem;
 		justify-content: space-between;
 		width: 100%;
+		font-size: $font-size-400;
 	}
 	.share-icon {
 		width: 26px;
