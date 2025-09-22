@@ -1,0 +1,72 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import NewsletterCTA from "../components/NewsletterCTA.astro";
+import Button from "../components/Button.astro";
+---
+
+<BaseLayout title="Contact Us | Travel Food Fun">
+	<div class="djne-container djne-flow divider">
+		<div class="djne-container djne-flow" data-type="narrow">
+			<section class="djne-section djne-flow djne-full-article | djne-padding-block-10">
+				<h1 class="djne-heading-2">Send a Message</h1>
+				<p>Feel free to use the form below to drop us a message. We'll do you best to respond to your inquiry as soon as possible.</p>
+				<form class="djne-flow contact-form">
+					<div class="flex-group">
+						<label for="name" class="djne-visually-hidden">Name:</label>
+						<input id="name" placeholder="Name" type="text" required />
+					</div>
+					<div class="flex-group">
+						<label for="email" class="djne-visually-hidden">Email:</label>
+						<input id="email" placeholder="Email" type="email" required />
+					</div>
+					<div class="flex-group">
+						<label for="message" class="djne-visually-hidden">Message:</label>
+						<textarea name="message" id="message" placeholder="Message" rows="6"></textarea>
+					</div>
+					<Button theme="contact">Send a message</Button>
+				</form>
+			</section>
+		</div>
+	</div>
+	<div class="djne-container djne-flow divider">
+		<div class="djne-container djne-flow" data-type="narrow">
+			<section class="djne-section djne-flow djne-full-article | djne-padding-block-12">
+				<h2>Stay Connected on Social Media</h2>
+				<p>For more instant updates, engaging content, and to be a part of our vibrant community, follow us on social media. Feel free to tag us in your travel and food adventures&mdash;we love hearing from fellow explorers!</p>
+				<Button theme="instagram" href="https://instagram.com/tff">Follow on Instagram</Button>
+				<Button theme="twitter" href="https://twitter.com/tff">Follow on X</Button>
+				<Button theme="facebook" href="https://facebook.com/tff">Follow on Facebook</Button>
+			</section>
+		</div>
+	</div>
+	<div class="djne-container djne-flow divider djne-margin-block-end-12 djne-padding-block-end-12">
+		<div class="djne-container djne-flow" data-type="narrow">
+			<section class="djne-section djne-flow djne-full-article | djne-padding-block-10">
+				<h2>Let's Connect and Explore Together</h2>
+				<p>
+					Thank you for considering to reach out to Travel Fun Food. We look forward to connecting with you and sharing more adventures together. Whether it's through email, social media, or in person, let's make the journey of exploration
+					and discovery even more enjoyable.
+				</p>
+			</section>
+			<NewsletterCTA />
+		</div>
+	</div>
+
+	<style lang="scss">
+		@use "../styles/abstracts" as *;
+
+		.divider {
+			border-block-end: $divider;
+		}
+
+		.contact-form {
+			input,
+			textarea {
+				width: 100%;
+			}
+			textarea {
+				resize: none;
+			}
+		}
+	</style>
+</BaseLayout>

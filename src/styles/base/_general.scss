@@ -19,7 +19,8 @@ a:is(:hover, :focus) {
 	text-decoration: $link-decoration-hover;
 }
 
-input {
+input,
+textarea {
 	border: $form-input-border;
 	border-radius: $form-input-border-radius;
 	font-family: $form-input-font;

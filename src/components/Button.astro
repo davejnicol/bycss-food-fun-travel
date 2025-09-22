@@ -47,5 +47,86 @@ if (href) El = "a";
 				color: $button-secondary-color-hover;
 			}
 		}
+
+		&[data-type="contact"],
+		&[data-type="facebook"],
+		&[data-type="instagram"],
+		&[data-type="twitter"] {
+			width: 100%;
+		}
+
+		&[data-type="facebook"],
+		&[data-type="instagram"],
+		&[data-type="twitter"] {
+			position: relative;
+
+			&::before {
+				position: absolute;
+				content: "";
+				background-repeat: no-repeat;
+				top: 16px;
+				left: 12px;
+				height: 30px;
+				aspect-ratio: 1;
+				filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(7495%) hue-rotate(28deg) brightness(102%) contrast(93%);
+			}
+		}
+
+		&[data-type="contact"] {
+			background-color: $button-primary-background;
+			color: $button-primary-color;
+
+			&:is(:hover, :focus) {
+				background-color: $button-primary-background-hover;
+				color: $button-primary-color-hover;
+			}
+		}
+
+		&[data-type="facebook"] {
+			background-color: rgb(66, 103, 178);
+			color: $button-primary-color;
+			position: relative;
+
+			&::before {
+				background-image: url("/images/facebook.svg");
+			}
+
+			&:is(:hover, :focus) {
+				background-color: rgb(47, 78, 142);
+				color: $button-primary-color-hover;
+			}
+		}
+
+		&[data-type="instagram"] {
+			background: #833ab4; /* Fallback for older browsers */
+			background: linear-gradient(to left, #833ab4, #fd1d1d, #fcb045);
+			color: $button-primary-color;
+			position: relative;
+
+			&::before {
+				background-image: url("/images/instagram.svg");
+			}
+
+			&:is(:hover, :focus) {
+				background: #642a8b; /* Fallback for older browsers */
+				background: linear-gradient(to left, #642a8b, #a91212, #c78425);
+				color: $button-primary-color-hover;
+			}
+		}
+
+		&[data-type="twitter"] {
+			background-color: rgb(22, 22, 22);
+			color: $button-primary-color;
+			position: relative;
+
+			&::before {
+				background-image: url("/images/twitter.svg");
+			}
+
+			&:is(:hover, :focus) {
+				background-color: rgb(50, 50, 50);
+				color: $button-primary-color-hover;
+			}
+		}
 	}
 </style>
