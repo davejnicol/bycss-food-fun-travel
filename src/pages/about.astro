@@ -1,0 +1,77 @@
+---
+import { getCollection } from "astro:content";
+
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ArticleLatest from "../components/ArticleLatest.astro";
+import NewsletterCTA from "../components/NewsletterCTA.astro";
+import ViewAllBlogs from "../components/ViewAllBlogs.astro";
+
+const allArticles = await getCollection("articles");
+allArticles.sort((a, b) => Date.parse(b.data.date) - Date.parse(a.data.date));
+---
+
+<BaseLayout title="About - Explore behind TFF | Travel Food Fun">
+	<div class="djne-container djne-flow" data-type="narrow">
+		<section class="djne-section djne-flow djne-full-article | djne-padding-block-end-10">
+			<h1 class="djne-heading-2">Explore behind TFF</h1>
+			<p class="djne-full-article-subtitle">
+				Welcome to Travel Fun Food! I'm Linda Xu, the founder and chief explorer behind this adventure-filled blog. With a passion for travel, a love for diverse cuisines, and an insatiable curiosity for the world, I embarked on a journey to
+				share my experiences and discoveries with fellow wanderers.
+			</p>
+			<h2 id="from-wanderlust-to-words-my-background">From Wanderlust to Words: My Background</h2>
+			<p>
+				In a world where every journey leaves an indelible mark, let me share a bit about my background. Raised in [Author&#39;s Hometown], my love for exploration was sparked during childhood family vacations. From quaint villages to
+				bustling cities, each destination fueled my curiosity and ignited a desire to uncover the hidden gems of our planet.
+			</p>
+		</section>
+	</div>
+	<div class="djne-container djne-flow" data-type="full-bleed">
+		<section><img src="/images/about/about-page-1.jpg" alt="" /></section>
+	</div>
+	<div class="djne-container djne-flow" data-type="narrow">
+		<section class="djne-section djne-flow djne-full-article | djne-padding-block-10">
+			<h2 id="the-birth-of-travel-fun-food">The Birth of Travel Fun Food</h2>
+			<p>
+				The idea of Travel Fun Food was born from a simple realization – that the joy of travel and the delight of savoring unique cuisines should be shared. What began as a personal journal of my escapades soon transformed into a vibrant
+				platform where travel enthusiasts and foodies alike could find inspiration, tips, and tales from my journeys around the globe.
+			</p>
+			<h2 id="exploring-the-world-one-post-at-a-time">Exploring the World, One Post at a Time</h2>
+			<p>
+				Since its inception in 2020, Travel Fun Food has evolved into a tapestry of stories, photographs, and recommendations. From the bustling streets of Ahmedabad to the serene landscapes of India, each post is a chapter in the
+				ever-growing story of exploration and appreciation for the world&#39;s diversity.
+			</p>
+		</section>
+	</div>
+	<div class="djne-container djne-flow" data-type="full-bleed">
+		<section><img src="/images/about/about-page-2.jpg" alt="" /></section>
+	</div>
+	<div class="djne-container djne-flow" data-type="narrow">
+		<section class="djne-section djne-flow djne-full-article | djne-padding-block-10">
+			<h2 id="become-a-part-of-the-adventure">Become a Part of the Adventure</h2>
+			<p>
+				As we continue to unravel the wonders of the world, I invite you to join our community of fellow travelers and food enthusiasts. Follow along for travel tips, culinary delights, and the occasional mishap that adds a touch of
+				spontaneity to our journeys. Let&#39;s make Travel Fun Food not just a blog but a shared experience of discovery.
+			</p>
+		</section>
+		<NewsletterCTA />
+	</div>
+	<div class="djne-container djne-flow djne-margin-block-start-12">
+		<section class="latest | djne-flow djne-padding-block-start-12 djne-padding-block-end-10">
+			<h2 class="djne-heading-2">Read the latest article</h2>
+			<div class="djne-grid-auto-fit">
+				<ArticleLatest article={allArticles[0]} excerptLength="30" />
+			</div>
+			<div class="djne-margin-block-start-12">
+				<ViewAllBlogs />
+			</div>
+		</section>
+	</div>
+</BaseLayout>
+
+<style lang="scss">
+	@use "../styles/abstracts" as *;
+
+	.latest {
+		border-block-start: $divider;
+	}
+</style>

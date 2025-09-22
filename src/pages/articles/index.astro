@@ -11,6 +11,8 @@ allArticles.sort((a, b) => Date.parse(b.data.date) - Date.parse(a.data.date));
 <BaseLayout title="Articles | Travel Food Fun">
 	<div class="djne-container djne-flow">
 		<section class="djne-section">
+			<h1 class="djne-heading-2 djne-margin-block-end-8">All Articles</h1>
+			<p class="djne-margin-block-end-8">Browse all of our interesting Travel Fun Food articles. Gather inspiration for your next fun filled adventure. <span class="djne-fw-bold">Enjoy!</span></p>
 			<div class="djne-grid-auto-fit">
 				{allArticles.map((article) => <ArticlePreview {article} excerptLength="11" />)}
 			</div>
