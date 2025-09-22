@@ -10,9 +10,12 @@
   },
   "dependencies": {
     "astro": "^5.13.5",
-    "markdown-it": "^14.1.0"
+    "markdown-it": "^14.1.0",
+    "tinacms": "^2.8.3"
   },
   "devDependencies": {
+    "@tinacms/cli": "^1.10.3",
+    "@types/node": "^24.5.2",
     "sass": "^1.90.0"
   }
 }
