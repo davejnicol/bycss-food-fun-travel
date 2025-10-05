@@ -32,6 +32,18 @@ export default defineConfig({
         name: "article",
         label: "Articles",
         path: "src/content/articles",
+        format: "md",
+        ui: {
+            filename: {
+                // if disabled, the editor can not edit the filename
+                readonly: false,
+                // Example of using a custom slugify function
+                slugify: (values) => {
+                    // Values is an object containing all the values of the form.
+                    return `${values?.title?.toLowerCase().replace(/ /g, '-')}`
+                },
+            },
+        },
         fields: [
           {
             type: "string",
@@ -85,7 +97,7 @@ export default defineConfig({
             type: "boolean",
             name: "featured",
             label: "Featured Post",
-            required: true,
+            required: false,
           },
           {
             type: "rich-text",
