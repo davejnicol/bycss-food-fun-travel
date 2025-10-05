@@ -2,16 +2,15 @@
 title: Tacos and Tequila
 subtitle: A Foodie's Guide to Mexico City
 author: David Traveleree
-imageSrc: tacos-and-tequila.jpg
+imageSrc: /images/articles/tacos-and-tequila.jpg
 imageAlt: A board with three different types of tacos on it
 date: 2024-01-20
 tags:
-  - Food Travel
-  - Mexico
-  - Central America
-  - Street Food
+    - Food Travel
+    - Mexico
+    - Central America
+    - Street Food
 featured: false
-
 ---
 
 Mexico City, the vibrant capital of Mexico, is a sensory overload in the best way possible.

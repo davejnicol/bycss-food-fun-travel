@@ -2,13 +2,13 @@
 title: Beyond Baguette
 subtitle: Unveiling the Delights of French Cuisine
 author: David Traveleree
-imageSrc: beyond-baguette.jpg
+imageSrc: /images/articles/beyond-baguette.jpg
 imageAlt: An assortment of cheeses, with some bread, a tomato, and a glass of red wine
 date: 2023-06-17
 tags:
-  - Food Travel
-  - France
-  - Europe
+    - Food Travel
+    - France
+    - Europe
 featured: false
 ---
 

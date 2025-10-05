@@ -2,13 +2,13 @@
 title: Educational Adventures
 subtitle: Learning Through Travel with Children
 author: Claudette Tessier
-imageSrc: educational-adventures.jpg 
+imageSrc: /images/articles/educational-adventures.jpg
 imageAlt: A kid standing in a field, looking at a map
 date: 2023-09-02
 tags:
-  - Family Travel
-  - Travel Tips
-  - Cultural
+    - Family Travel
+    - Travel Tips
+    - Cultural
 featured: true
 ---
 

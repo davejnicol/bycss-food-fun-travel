@@ -2,16 +2,15 @@
 title: Island Hopping in the Maldives
 subtitle: Paradise Found in Turquoise Waters
 author: Manjusha Chaudhari
-imageSrc: island-hopping-in-the-maldives.jpg
+imageSrc: /images/articles/island-hopping-in-the-maldives.jpg
 imageAlt: White sand beach with vibrant blue ocean water
 date: 2023-10-12
 tags:
-  - Luxury Travel
-  - Maldives
-  - Beaches
-  - Relaxation
+    - Luxury Travel
+    - Maldives
+    - Beaches
+    - Relaxation
 featured: false
-
 ---
 
 The Maldives conjures up images of impossibly blue water, pristine white sand beaches, and luxurious overwater bungalows.
