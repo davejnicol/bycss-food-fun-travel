@@ -8,6 +8,7 @@ import NewsletterCTA from "../../components/NewsletterCTA.astro";
 
 export async function getStaticPaths() {
 	const allArticles = await getCollection("articles");
+	allArticles.sort((a, b) => Date.parse(b.data.date) - Date.parse(a.data.date));
 
 	// create an array of all the authors, with no repeats
 	const uniqueAuthors = [...new Set(allArticles.map((article) => article.data.author).flat())];

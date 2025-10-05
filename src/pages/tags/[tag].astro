@@ -6,6 +6,7 @@ import NewsletterCTA from "../../components/NewsletterCTA.astro";
 
 export async function getStaticPaths() {
 	const allArticles = await getCollection("articles");
+	allArticles.sort((a, b) => Date.parse(b.data.date) - Date.parse(a.data.date));
 
 	// create an array of all the tags, with no repeats
 	const uniqueTags = [...new Set(allArticles.map((article) => article.data.tags).flat())];
