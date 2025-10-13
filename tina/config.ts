@@ -44,6 +44,12 @@ export default defineConfig({
                     },
                 },
             },
+            defaultItem: () => {
+                return {
+                    featured: false,
+                    date: new Date().toISOString(),     
+                }
+            },
             fields: [
                 {
                     type: "string",
@@ -80,6 +86,7 @@ export default defineConfig({
                     type: "string",
                     name: "imageAlt",
                     label: "Alt Text for Featured Image",
+                    description: "Describe the image",
                     required: true,
                 },
                 {
@@ -103,7 +110,7 @@ export default defineConfig({
                     type: "boolean",
                     name: "featured",
                     label: "Featured Post",
-                    required: false,
+                    required: true,
                 },
                 {
                     type: "rich-text",
@@ -136,6 +143,9 @@ export default defineConfig({
                     type: "string",
                     name: "description",
                     label: "Description",
+                    ui: { 
+                        component: "textarea",
+                    },
                     required: true,
                 }
             ]
