@@ -2,7 +2,6 @@
 import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import ArticlePreview from "../../components/ArticlePreview.astro";
-import authors from "../../content/authors/authors.json";
 import AboutTheAuthor from "../../components/AboutTheAuthor.astro";
 import NewsletterCTA from "../../components/NewsletterCTA.astro";
 
@@ -30,8 +29,10 @@ export async function getStaticPaths() {
 
 const { articles, author } = Astro.props;
 const pageTitle = author + " | Travel Food Fun";
+
+const allAuthors = await Astro.glob("../../content/authors/*.json");
 const articleAuthor = author;
-const authorInfo = authors.find(function (author) {
+const authorInfo = allAuthors.find(function (author) {
 	return author.name === articleAuthor;
 });
 ---
@@ -45,7 +46,7 @@ const authorInfo = authors.find(function (author) {
 				{articles.map((article) => <ArticlePreview {article} excerptLength="20" />)}
 			</div>
 			<div class="djne-margin-block-start-12">
-				<AboutTheAuthor name={authorInfo.name} description={authorInfo.description} image={authorInfo.image} />
+				<AboutTheAuthor name={authorInfo?.name} description={authorInfo?.description} image={authorInfo?.image} />
 			</div>
 		</section>
 	</div>

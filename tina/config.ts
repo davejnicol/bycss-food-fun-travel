@@ -107,6 +107,33 @@ export default defineConfig({
           },
         ],
       },
+      {
+        name: "authors",
+        label: "Authors",
+        path: "src/content/authors",
+        format: "json",
+        fields: [
+            {
+                type: "string",
+                name: "name",
+                label: "Name",
+                isTitle: true,
+                required: true,
+            },
+            {
+                type: "image",
+                name: "image",
+                label: "Image",
+                required: true,
+            },
+            {
+                type: "string",
+                name: "description",
+                label: "Description",
+                required: true,
+            }
+        ]
+      },
     ],
   },
 });
