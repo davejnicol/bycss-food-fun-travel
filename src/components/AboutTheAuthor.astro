@@ -9,7 +9,7 @@ const slugFriendlyAuthor = articleAuthor.toLowerCase().replace(/\s+/g, "-");
 	<h2 class="djne-fs-500 djne-fw-bold">About the author</h2>
 	<div class="author">
 		<a href={`/authors/${slugFriendlyAuthor}`}>
-			<img src=`/images/authors/${image}` alt="" class="djne-border-radius-2" />
+			<img src={image} alt="" class="djne-border-radius-2" />
 		</a>
 		<div>
 			<h3 class="djne-fs-600 djne-fw-semi-bold">{name}</h3>
