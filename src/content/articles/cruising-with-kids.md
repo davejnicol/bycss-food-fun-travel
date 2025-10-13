@@ -1,7 +1,7 @@
 ---
 title: Cruising with Kids
 subtitle: Fun for All Ages on the High Seas
-author: Claudette Tessier
+author: src/content/authors/claudette-tessier.json
 imageSrc: /images/articles/cruising-with-kids.jpg
 imageAlt: The deck of a cruise ship with a kid-friendly pool
 date: 2023-09-16

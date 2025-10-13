@@ -1,7 +1,7 @@
 ---
 title: Exploring Europe on a Tight Budget
 subtitle: Tips and Tricks
-author: Liam Lawson
+author: src/content/authors/liam-lawson.json
 imageSrc: /images/articles/exploring-europe-on-a-budget.jpg
 imageAlt: a European street
 date: 2023-08-05

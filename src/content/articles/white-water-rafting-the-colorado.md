@@ -1,7 +1,7 @@
 ---
 title: Whitewater Rafting the Colorado
 subtitle: An Adrenaline-Fueled Adventure
-author: Maya Lanstro
+author: src/content/authors/maya-lanstro.json
 imageSrc: /images/articles/white-water-rafting-the-colorado.jpg
 imageAlt: A group of people white water rafting
 date: 2024-04-04

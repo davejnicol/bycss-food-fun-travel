@@ -1,7 +1,7 @@
 ---
 title: Exploring the Spice Route
 subtitle: A Gastronomic Journey Through India
-author: David Traveleree
+author: src/content/authors/david-traveleree.json
 imageSrc: /images/articles/exploring-the-spice-route.jpg
 imageAlt: Metal bowls filled with brightly colored spices
 date: 2023-06-10

@@ -1,7 +1,7 @@
 ---
 title: Backpacking Southeast Asia on a Shoestring Budget
 subtitle: Travelling for less while seeing more
-author: Liam Lawson
+author: src/content/authors/liam-lawson.json
 imageSrc: /images/articles/backpacking-southeast-asia-on-a-budget.jpg
 imageAlt: a walking bridge extending over a very large, forested valley
 date: 2023-07-29

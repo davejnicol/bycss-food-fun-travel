@@ -1,7 +1,7 @@
 ---
 title: Trekking Through Patagonia
 subtitle: Where Glaciers Meet Mountains
-author: Maya Lanstro
+author: src/content/authors/maya-lanstro.json
 imageSrc: /images/articles/trekking-through-patagonia.jpg
 imageAlt: Two people on a walking path with a large mountain in front of them
 date: 2024-03-08

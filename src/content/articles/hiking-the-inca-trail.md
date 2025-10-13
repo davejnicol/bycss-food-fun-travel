@@ -1,7 +1,7 @@
 ---
 title: Hiking the Inca Trail
 subtitle: A Conquest of Breathtaking Beauty
-author: Maya Lanstro
+author: src/content/authors/maya-lanstro.json
 imageSrc: /images/articles/hiking-the-inca-trail.jpg
 imageAlt: Forested mountains during the sun rise
 date: 2024-04-12

@@ -10,31 +10,56 @@ export async function getStaticPaths() {
 	allArticles.sort((a, b) => Date.parse(b.data.date) - Date.parse(a.data.date));
 
 	// create an array of all the authors, with no repeats
-	const uniqueAuthors = [...new Set(allArticles.map((article) => article.data.author).flat())];
+	const uniqueAuthorData = [...new Set(allArticles.map((article) => article.data.author).flat())];
+
+	const pattern = /(?<=src\/content\/authors\/)([^/]+)(?=\.json)/;
+
+	const uniqueAuthorNames = uniqueAuthorData.map((path) => {
+		const matchResult = path.match(pattern);
+
+		if (!matchResult) {
+			return null; // Handle cases where the path doesn't match
+		}
+
+		// Access the captured string at index 1 of the matchResult array
+		const filename = matchResult[1];
+
+		// Apply string methods to the captured string
+		const words = filename.split("-");
+		const capitalizedWords = words.map((word: string) => word.charAt(0).toUpperCase() + word.slice(1));
+
+		return capitalizedWords.join(" ");
+	});
 
 	// map over the above to create a page for each author
-	return uniqueAuthors.map((author) => {
+	return uniqueAuthorNames.map((author) => {
 		const slugFriendlyAuthor = author.toLowerCase().replace(/\s+/g, "-");
-		const filteredArticles = allArticles.filter((article) => article.data.author.includes(author));
+
+		const filteredArticles = allArticles.filter((article) => article.data.author.includes(`src/content/authors/${slugFriendlyAuthor}.json`));
 
 		return {
 			params: { author: slugFriendlyAuthor },
 			props: {
 				articles: filteredArticles,
 				author: author,
+				authorPath: slugFriendlyAuthor,
 			},
 		};
 	});
 }
 
-const { articles, author } = Astro.props;
+const { articles, author, authorPath } = Astro.props;
 const pageTitle = author + " | Travel Food Fun";
 
-const allAuthors = await Astro.glob("../../content/authors/*.json");
-const articleAuthor = author;
-const authorInfo = allAuthors.find(function (author) {
-	return author.name === articleAuthor;
-});
+// Previous working solution before more refactoring
+// const allAuthors = await Astro.glob("../../content/authors/*.json");
+// const articleAuthor = author;
+// const authorInfo = authors.find(function (author) {
+// 	return author.name === articleAuthor;
+// });
+
+const articleAuthorName = authorPath;
+const authorInfo = await import(`../../content/authors/${articleAuthorName}.json`).then((info) => info.default);
 ---
 
 <BaseLayout title={pageTitle}>

@@ -25,11 +25,16 @@ export async function getStaticPaths() {
 const { article } = Astro.props as Props;
 const { Content } = await article.render();
 
-const allAuthors = await Astro.glob("../../content/authors/*.json");
-const articleAuthor = article.data.author;
-const authorInfo = allAuthors.find(function (author) {
-	return author.name === articleAuthor;
-});
+// Previous working solution before more refactoring
+// const allAuthors = await Astro.glob("../../content/authors/*.json");
+// const articleAuthor = article.data.author;
+// const authorInfo = allAuthors.find(function (author) {
+// 	return author.name === articleAuthor;
+// });
+
+const articleAuthorPath = article.data.author;
+const articleAuthorName = articleAuthorPath.match(/\/([^\/]+)\.json$/)[1];
+const authorInfo = await import(`../../content/authors/${articleAuthorName}.json`).then((info) => info.default);
 
 const featuredArticles = await getCollection("articles", ({ data }) => {
 	return data.featured;
@@ -66,7 +71,7 @@ const pageTitle = article.data.title + " | Travel Food Fun";
 		<div class="djne-container" data-type="narrow">
 			<section class="djne-section djne-flow djne-full-article | djne-padding-block-8">
 				<Content />
-				<AboutTheAuthor name={authorInfo?.name} description={authorInfo?.description} image={authorInfo?.image} />
+				<AboutTheAuthor name={authorInfo.name} description={authorInfo.description} image={authorInfo.image} />
 			</section>
 		</div>
 	</article>

@@ -1,7 +1,7 @@
 ---
 title: Tacos and Tequila
 subtitle: A Foodie's Guide to Mexico City
-author: David Traveleree
+author: src/content/authors/david-traveleree.json
 imageSrc: /images/articles/tacos-and-tequila.jpg
 imageAlt: A board with three different types of tacos on it
 date: 2024-01-20

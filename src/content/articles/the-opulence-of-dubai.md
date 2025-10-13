@@ -1,7 +1,7 @@
 ---
 title: The Opulence of Dubai
 subtitle: A City Where Luxury Knows No Bounds
-author: Manjusha Chaudhari
+author: src/content/authors/manjusha-chaudhari.json
 imageSrc: /images/articles/the-opulence-of-dubai.jpg
 imageAlt: Dubai skyline
 date: 2024-01-09

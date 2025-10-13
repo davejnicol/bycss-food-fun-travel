@@ -1,7 +1,7 @@
 ---
 title: Workaway Exchanges
 subtitle: Traveling the World While You Work
-author: Liam Lawson
+author: src/content/authors/liam-lawson.json
 imageSrc: /images/articles/workaway-exchanges.jpg
 imageAlt: A close up of a map with pins in it
 date: 2023-12-08

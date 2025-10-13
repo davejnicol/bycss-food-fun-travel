@@ -1,7 +1,7 @@
 ---
 title: Glamping in the Serengeti
 subtitle: Experiencing Luxury in the Wild
-author: Manjusha Chaudhari
+author: src/content/authors/manjusha-chaudhari.json
 imageSrc: /images/articles/glamping-in-the-serengeti.jpg
 imageAlt: three hot air balloons taking flight over the Serengeti during run rise
 date: 2024-05-01
