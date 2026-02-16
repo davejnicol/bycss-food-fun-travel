@@ -1,15 +1,16 @@
 ---
+imgAlt: a cruise ship in the mediterranean
 title: Cruising the Mediterranean
 subtitle: A Journey of History and Indulgence
-author: Manjusha Chaudhari
+author: src/content/authors/manjusha-chaudhari.json
 imageSrc: /images/articles/cruising-the-mediterranean.jpg
-imgAlt: a cruise ship in the mediterranean
-date: 2023-06-15
+imageAlt: a cruise ship in the mediterranean
+date: 2023-06-15T00:00:00.000Z
 tags:
-    - Cruise Travel
-    - Europe
-    - Mediterranean
-    - Luxury Travel
+  - Cruise Travel
+  - Europe
+  - Mediterranean
+  - Luxury Travel
 featured: false
 ---
 

@@ -1,21 +1,21 @@
 {
-  "name": "bycss-food-fun-travel",
-  "type": "module",
-  "version": "0.0.1",
-  "scripts": {
-    "dev": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro"
-  },
-  "dependencies": {
-    "astro": "^5.13.5",
-    "markdown-it": "^14.1.0",
-    "tinacms": "^2.8.3"
-  },
-  "devDependencies": {
-    "@tinacms/cli": "^1.10.3",
-    "@types/node": "^24.5.2",
-    "sass": "^1.90.0"
-  }
+	"name": "bycss-food-fun-travel",
+	"type": "module",
+	"version": "0.0.1",
+	"scripts": {
+		"dev": "astro dev",
+		"build": "astro build",
+		"preview": "astro preview",
+		"astro": "astro"
+	},
+	"dependencies": {
+		"astro": "^5.17.2",
+		"markdown-it": "^14.1.1",
+		"tinacms": "^2.10.1"
+	},
+	"devDependencies": {
+		"@tinacms/cli": "^1.12.6",
+		"@types/node": "^24.10.13",
+		"sass": "^1.97.3"
+	}
 }
