@@ -27,7 +27,7 @@ featuredArticles.sort((a, b) => Date.parse(b.data.date) - Date.parse(a.data.date
 			<h2 class="djne-heading-2">Featured articles</h2>
 			<div class="home-featured-grid">
 				<ArticlePreview article={featuredArticles[0]} excerptLength="48" />
-				<div>
+				<div class="home-featured-side">
 					{featuredArticles.slice(1, 4).map((article) => <ArticlePreview {article} />)}
 				</div>
 			</div>
@@ -52,13 +52,28 @@ featuredArticles.sort((a, b) => Date.parse(b.data.date) - Date.parse(a.data.date
 	</div>
 </Layout>
 
-<style>
+<style lang="scss" is:global>
 	.home-featured-grid {
 		display: grid;
-		gap: 1rem;
+		gap: 1.5rem;
 
-		@media (min-width: 800px) {
-			grid-template-columns: 3fr 1fr;
+		@media (min-width: 1100px) {
+			grid-template-columns: minmax(min(600px, 100%), 1fr) 1fr;
+		}
+	}
+	.home-featured-side article {
+		display: grid;
+		margin-bottom: 1.5rem;
+
+		& .home-featured-side article > div:nth-last-child {
+			margin-bottom: 1.5rem;
+		}
+
+		@media (min-width: 1100px) {
+			grid-template-columns: minmax(min(260px, 100%), 1fr) 1fr;
+			gap: 1rem;
+			align-items: center;
+			margin-bottom: 1.5rem;
 		}
 	}
 </style>
