@@ -2,13 +2,13 @@
 import BaseHead from "../components/BaseHead.astro";
 import SiteFooter from "../components/SiteFooter.astro";
 import SiteHeader from "../components/SiteHeader.astro";
-const { title, withGradient } = Astro.props;
+const { title, withGradient, withGradient2 } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en">
 	<BaseHead {title} />
-	<body class={withGradient && "with-gradient"}>
+	<body class:list={[{ "with-gradient": withGradient }, { "with-gradient-2": withGradient2 }]}>
 		<SiteHeader />
 		<main id="main">
 			<slot />
@@ -30,5 +30,11 @@ const { title, withGradient } = Astro.props;
 		background-image: $page-top-gradient;
 		background-repeat: no-repeat;
 		background-size: 100% $page-top-gradient-height;
+
+		&-2 {
+			background-image: $page-top-gradient;
+			background-repeat: no-repeat;
+			background-size: 100% $page-top-gradient-height-secondary;
+		}
 	}
 </style>
